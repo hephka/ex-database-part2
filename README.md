@@ -12,15 +12,16 @@ postgres=> \quit
 % psql -d dvbrental -U db_user
 ```
 
-Vous êtes maintenant connectés à la base de donnée dvdrental
+Vous êtes maintenant connectés à la base de donnée `dvdrental`
 
 Vous pouvez récupérer un modele visuel de cette base de donnée sur: https://www.postgresqltutorial.com/postgresql-sample-database/
 C'est très utile si vous voulez comprendre que représente cette base de données.
 
 ## 1  
 
-la commande \dt+ NOM_DE_LA_TABLE vous donne la liste des tables.  
-la commande \dt+ NOM_DE_LA_TABLE vous donne le nom des colonnes de d'une table. la commande \d   NOM_DE_LA_TABLE vous affiche le nom des colonnes ainsi que les types associés à chaque colonnes.  
+la commande `\dt` vous donne la liste des tables.  
+la commande `\dt+ NOM_DE_LA_TABLE` vous donne le nom des colonnes de d'une table.  
+la commande `\d   NOM_DE_LA_TABLE` vous affiche le nom des colonnes ainsi que les types associés à chaque colonnes.  
 
 
 ```sql
@@ -46,24 +47,31 @@ la commande \dt+ NOM_DE_LA_TABLE vous donne le nom des colonnes de d'une table. 
 (15 rows)
 ```
 ```sql
-=> \dt+actor
-                          List of relations
- Schema |     Name      | Type  |  Owner  |    Size    | Description
---------+---------------+-------+---------+------------+-------------
- public | actor         | table | db_user | 40 kB      |
- public | address       | table | db_user | 88 kB      |
- public | category      | table | db_user | 8192 bytes |
- public | city          | table | db_user | 64 kB      |
- public | country       | table | db_user | 8192 bytes |
- public | customer      | table | db_user | 96 kB      |
- public | film          | table | db_user | 464 kB     |
- public | film_actor    | table | db_user | 264 kB     |
- public | film_category | table | db_user | 72 kB      |
- public | inventory     | table | db_user | 224 kB     |
- public | language      | table | db_user | 8192 bytes |
- public | payment       | table | db_user | 888 kB     |
- public | rental        | table | db_user | 1224 kB    |
- public | staff         | table | db_user | 16 kB      |
- public | store         | table | db_user | 8192 bytes |
-(15 rows)
+=> \dt+ actor
+                   List of relations
+ Schema | Name  | Type  |  Owner  | Size  | Description
+--------+-------+-------+---------+-------+-------------
+ public | actor | table | db_user | 40 kB |
+(1 row)
 ```
+```sql
+=> \d actor
+                                            Table "public.actor"
+   Column    |            Type             | Collation | Nullable |                 Default
+-------------+-----------------------------+-----------+----------+-----------------------------------------
+ actor_id    | integer                     |           | not null | nextval('actor_actor_id_seq'::regclass)
+ first_name  | character varying(45)       |           | not null |
+ last_name   | character varying(45)       |           | not null |
+ last_update | timestamp without time zone |           | not null | now()
+Indexes:
+    "actor_pkey" PRIMARY KEY, btree (actor_id)
+    "idx_actor_last_name" btree (last_name)
+Referenced by:
+    TABLE "film_actor" CONSTRAINT "film_actor_actor_id_fkey" FOREIGN KEY (actor_id) REFERENCES actor(actor_id) ON UPDATE CASCADE ON DELETE RESTRICT
+Triggers:
+    last_updated BEFORE UPDATE ON actor FOR EACH ROW EXECUTE FUNCTION last_updated()
+```
+
+## 2  
+
+Ecrivez une requête SQL qui affiche tous les titres et descriptions des films dont la description contient le mot `Amazing`.  
