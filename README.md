@@ -58,3 +58,20 @@ JOIN payment
 ON customer.customer_id = payment.customer_id
 WHERE amount > 10;
 ```
+
+
+## 4   
+
+Ecrivez une requête SQL qui affiche le chiffre d'affaire gagné par le video club depuis son ouverture.  
+
+```sql
+SELECT
+SUM(amount)
+FROM payment;
+```
+
+
+## 5  
+
+Ecrivez une requête SQL qui affiche le titre de tous les films dont la langue est l'anglais et dont la durée est supérieure à 120 minutes.  
+
