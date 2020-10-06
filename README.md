@@ -107,6 +107,21 @@ _`WITH` a revoir_
 
 Récupérer les mêmes informations que l'exercice précédent, mais ajouter avec un JOIN le montant total des achats pour chacun du TOP 10 des clients.
 
+```sql
+SELECT
+    customer.customer_id,
+    customer.first_name,
+    customer.last_name,
+    customer.email,
+    COUNT(rental_id),
+    SUM(amount)
+FROM customer JOIN payment
+ON customer.customer_id = payment.customer_id
+GROUP BY customer.customer_id
+ORDER BY count DESC
+LIMIT 10;
+```
+
 
 ## 8  
 
