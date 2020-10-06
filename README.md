@@ -1,1 +1,1 @@
-# ex-database-part2
+# Exercices database partie 2
