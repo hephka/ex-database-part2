@@ -19,9 +19,9 @@ C'est très utile si vous voulez comprendre que représente cette base de donné
 
 ## 1  
 
-la commande `\dt` vous donne la liste des tables.  
-la commande `\dt+ NOM_DE_LA_TABLE` vous donne le nom des colonnes de d'une table.  
-la commande `\d   NOM_DE_LA_TABLE` vous affiche le nom des colonnes ainsi que les types associés à chaque colonnes.  
+La commande `\dt` vous donne la liste des tables.  
+La commande `\dt+ NOM_DE_LA_TABLE` vous donne le nom des colonnes de d'une table.  
+La commande `\d   NOM_DE_LA_TABLE` vous affiche le nom des colonnes ainsi que les types associés à chaque colonnes.  
 
 
 ```sql
