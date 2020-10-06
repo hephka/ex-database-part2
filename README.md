@@ -1,10 +1,21 @@
 # Exercices database partie 2
 
 
-Télécharger la base de donnée: https://sp.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip  
+Télécharger la base de donnée: https://sp.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
+Dézipper le fichier dvdrental.zip et installer la base de donnée dvdrental.tar avec les commandes suivantes:   
 
-Vous pouvez récupérer un modele visuel de cette base de donnée sur:   https://www.postgresqltutorial.com/postgresql-sample-database/  
-C'est très utile si vous voulez comprendre que représente cette base de données.  
+```sql
+% psql -d postgres -U db_user
+postgres=> CREATE DATABASE dvdrental;
+postgres=> \quit
+% pg_restore -U db_user -d dvdrental ./dvdrental.tar
+% psql -d dvbrental -U db_user
+```
+
+Vous êtes maintenant connectés à la base de donnée dvdrental
+
+Vous pouvez récupérer un modele visuel de cette base de donnée sur: https://www.postgresqltutorial.com/postgresql-sample-database/
+C'est très utile si vous voulez comprendre que représente cette base de données.
 
 ## 1  
 
