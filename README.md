@@ -100,6 +100,7 @@ GROUP BY customer.customer_id
 ORDER BY count DESC
 LIMIT 10;
 ```
+_`WITH` a revoir_
 
 
 ## 7  
