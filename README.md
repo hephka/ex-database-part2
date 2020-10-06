@@ -127,5 +127,6 @@ LIMIT 10;
 
 Faîtes preuves d'imagination et essayez de créer une requête très complexes que vous expliquerez. Cette requête devra utiliser les concepts que nous avons étudié en cours et vu dans les exercices précédents.
 
-=> Quel est le film le plus acheté en France ? <=
+=> Quel est le film le plus acheté en France ? <=  
+...   
 _**bon chance**_
