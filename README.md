@@ -32,8 +32,8 @@ Ecrivez une requête SQL qui affiche tous les titres et descriptions des films d
 
 ```sql
 SELECT
-title,
-description
+    title,
+    description
 FROM film
 WHERE description
 LIKE '%Amazing%';
@@ -48,13 +48,12 @@ Ecrivez une requête SQL qui récupère tous les paiements supérieurs à 10. Il
 
 ```sql
 SELECT
-customer.customer_id,
-first_name,
-last_name,
-amount,
-payment_date
-FROM customer
-JOIN payment
+    customer.customer_id,
+    first_name,
+    last_name,
+    amount,
+    payment_date
+FROM customer JOIN payment
 ON customer.customer_id = payment.customer_id
 WHERE amount > 10;
 ```
@@ -76,10 +75,8 @@ FROM payment;
 Ecrivez une requête SQL qui affiche le titre de tous les films dont la langue est l'anglais et dont la durée est supérieure à 120 minutes.  
 
 ```sql
-SELECT
-title
-FROM film
-JOIN language
+SELECT title
+FROM film JOIN language
 ON film.language_id = language.language_id
 WHERE name = 'English'
 AND length > 120;
@@ -89,6 +86,20 @@ AND length > 120;
 ## 6  
 
 Ecrivez une requête SQL qui affiche le TOP 10 des clients qui ont fait le plus d'achat dans ce video club. Il faudra récupérer leur id, prénom, nom, email. Il vous faudra utiliser les requêtes auxiliaires avec `WITH` pour cette exercice.  
+
+```sql
+SELECT
+    customer.customer_id,
+    customer.first_name,
+    customer.last_name,
+    customer.email,
+    COUNT(rental_id)
+FROM customer JOIN rental
+ON customer.customer_id = rental.customer_id
+GROUP BY customer.customer_id
+ORDER BY count DESC
+LIMIT 10;
+```
 
 
 ## 7  
