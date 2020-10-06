@@ -49,10 +49,10 @@ Ecrivez une requête SQL qui récupère tous les paiements supérieurs à 10. Il
 ```sql
 SELECT
 customer.customer_id,
-customer.first_name,
-customer.last_name,
-payment.amount,
-payment.payment_date
+first_name,
+last_name,
+amount,
+payment_date
 FROM customer
 JOIN payment
 ON customer.customer_id = payment.customer_id
@@ -74,4 +74,19 @@ FROM payment;
 ## 5  
 
 Ecrivez une requête SQL qui affiche le titre de tous les films dont la langue est l'anglais et dont la durée est supérieure à 120 minutes.  
+
+```sql
+SELECT
+title
+FROM film
+JOIN language
+ON film.language_id = language.language_id
+WHERE name = 'English'
+AND length > 120;
+```
+
+
+## 6  
+
+Ecrivez une requête SQL qui affiche le TOP 10 des clients qui ont fait le plus d'achat dans ce video club. Il faudra récupérer leur id, prénom, nom, email. Il vous faudra utiliser les requêtes auxiliaires avec WITH pour cette exercice.  
 
