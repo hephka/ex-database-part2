@@ -31,6 +31,30 @@ La commande `\d   NOM_DE_LA_TABLE` vous affiche le nom des colonnes ainsi que le
 Ecrivez une requête SQL qui affiche tous les titres et descriptions des films dont la description contient le mot `Amazing`.  
 
 ```sql
-SELECT title, description FROM film WHERE description LIKE '%Amazing%';
+SELECT
+title,
+description
+FROM film
+WHERE description
+LIKE '%Amazing%';
 ```
 
+
+## 3  
+
+Ecrivez une requête SQL qui récupère tous les paiements supérieurs à 10. Il faudra récupérer l'id, le prénom, le nom du client ainsi que le montant et la date du paiement.
+
+`customer_id | first_name |  last_name   | amount |        payment_date`
+
+```sql
+SELECT
+customer.customer_id,
+customer.first_name,
+customer.last_name,
+payment.amount,
+payment.payment_date
+FROM customer
+JOIN payment
+ON customer.customer_id = payment.customer_id
+WHERE amount > 10;
+```
