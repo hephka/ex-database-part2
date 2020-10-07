@@ -49,11 +49,11 @@ Ecrivez une requête SQL qui récupère tous les paiements supérieurs à 10. Il
 ```sql
 SELECT
     customer.customer_id,
-    first_name,
-    last_name,
-    amount,
-    payment_date
-FROM customer JOIN payment
+    customer.first_name,
+    customer.last_name,
+    payment.amount,
+    payment.payment_date
+FROM customer INNER JOIN payment
 ON customer.customer_id = payment.customer_id
 WHERE amount > 10;
 ```
