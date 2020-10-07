@@ -76,7 +76,7 @@ Ecrivez une requête SQL qui affiche le titre de tous les films dont la langue e
 
 ```sql
 SELECT title
-FROM film JOIN language
+FROM film INNER JOIN language
 ON film.language_id = language.language_id
 WHERE name = 'English'
 AND length > 120;
@@ -94,7 +94,7 @@ SELECT
     customer.last_name,
     customer.email,
     COUNT(rental_id)
-FROM customer JOIN rental
+FROM customer INNER JOIN rental
 ON customer.customer_id = rental.customer_id
 GROUP BY customer.customer_id
 ORDER BY count DESC
@@ -115,7 +115,7 @@ SELECT
     customer.email,
     COUNT(rental_id),
     SUM(amount)
-FROM customer JOIN payment
+FROM customer INNER JOIN payment
 ON customer.customer_id = payment.customer_id
 GROUP BY customer.customer_id
 ORDER BY count DESC
